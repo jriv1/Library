@@ -9,13 +9,76 @@
 </head>
 <body>
     <div class="header">
-        <h1>Library</h1>
-
+        <h1>Library.</h1>
+            
         <button class="newBook-btn" type="submit">New Book</button>
+
+        <button class="newBook-btn login" type="submit">Log in</button>
+
+
+    </div>
+
+    <button class = protobtn>wow</button>
+
+
+                    <div class="bookshelf">
+
+                
+
+
+
+
+
+                </div>
+
+
+
+
+    <div id="myModal" class="modal">
+
+       <div class="modal-form">
+        <span class="close"> &times;</span>
+
+               <form  class = "my-form " action="./index.html" method="post">
+                   
+                <h3>New Book</h3>
+                    <label for="bookname">
+
+                         <input type="text" name="bookname" id="bookname" placeholder="Book Name" required>
+
+                    </label>
+                    
+                    <label for="authorname">
+
+                            <input type="text" name="authorname" id="authorname" placeholder = "Author" required>
+                    </label> 
+                
+
+                    <label for="numPages">
+                            <input type="number" name="numPages" id="numPages" placeholder="No. of pages" required>
+                    </label>
+
+                    <label for="hasRead">
+
+                           Read: <input type="checkbox" name="hasRead" id="hasRead">
+                    </label>
+
+                    <button  class ="addBook-btn" type="submit">Add Book</button>
+
+          
+
+               </form>
+             
+       </div>
+
+
     </div>
 
     <form action="" method="post"></form>
     <script src="./app.js"></script>
 
 </body>
+
+
+
 </html>

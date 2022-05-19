@@ -5,17 +5,22 @@
 }
 
 body{
-    background-color: rgb(248, 248, 248)
+    background-color: rgb(249, 249, 249);
+     margin: 0px;
+   
 }
 .header{
-    display: flex;
-    flex-direction: column;
+    display: flex;   /*Header nav bar*/
+    justify-content: space-around;
     align-items: center;
+    box-shadow: 0 2px lightgray;
+  
 }
-.header h1{
-    font-size: 60px;
+.header h1{   /*Library header*/
+    font-size: 40px;
+    margin: 10px;
 }
-.newBook-btn{
+.newBook-btn{ /* Button to input new book*/
     background-color: white;
     color: black;
     border-radius: 12px;
@@ -25,3 +30,97 @@ body{
     font-size: 25px ;
     padding: 4px;
 }
+.login{
+    background-color: black;
+    color: white;
+}
+.addBook-btn{  /* Modal add book to library*/
+    width: 100px;
+    padding: 4px;
+    font-size:12px;
+    border-radius: 4px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+input{
+    border-radius: 2px;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+.bookshelf{    /*container for books*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-around;
+    margin-top: 100px;
+    gap:60px;
+}
+
+.book{
+    background-color: rgb(255, 255, 255); /* book object */
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    justify-content:space-between;
+    align-items: center;
+    border-radius: 4px;
+    border: 2px solid rgb(4, 4, 4);
+    box-shadow: 4px  4px rgb(163, 163, 163); 
+    
+}
+/*Modal 
+*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  }
+  /* Modal Content */
+.modal-form {
+    background-color: #fefefe;
+    margin: 12% auto;
+    padding: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    width: 20%; 
+    
+ 
+  }
+  .my-form{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      
+
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
