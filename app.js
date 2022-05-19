@@ -1,7 +1,4 @@
-//Library
-//When I click new book button a modal should appear then asks user to input
-// name author pages and haveread then what the user inputs is pushed as an new object book
-// into the library array
+
 
 let library = []; //global scope variable
 
@@ -10,7 +7,6 @@ const newBookBtn = document.querySelector(".newBook-btn");
 const modal = document.getElementById("myModal");
 const span = document.getElementsByClassName("close")[0];
 const proto = document.querySelector(".protobtn");
-
 
 //Modal
 newBookBtn.onclick = function() {
@@ -29,8 +25,9 @@ newBookBtn.onclick = function() {
     }
   }
 
-proto.addEventListener("click",function(){ //When clicking wow-btn this generates
+proto.addEventListener("click",AddBook); //When clicking wow-btn this generates
 
+function AddBook(){
   const book = document.createElement("div");
   book.className = "book";
   document.querySelector(".bookshelf").appendChild(book);
@@ -48,11 +45,9 @@ proto.addEventListener("click",function(){ //When clicking wow-btn this generate
   pages.innerText = "pg. " + Book2.pages;
   removeBtn.innerText = "Remove";
 
-  
   book.append(bookName,author,pages,haveRead,removeBtn);
+}
 
-
-})
 
   
   //Book object and constructor
@@ -62,29 +57,26 @@ this.name = name;
 this.author = author;
 this.pages = pages;
 this.haveRead = haveRead;
-
-this.haveYouReadMe = function(){
-    this.haveRead === true ? console.log("You have read me"): console.log("You have not read me");
-}
-
-}
-
-Book.prototype.info = function()
-{
-    return (this.name + " " +  this.author);
 }
 
 
-Book.prototype.readMe = function(){
-    console.log(`Would you like to read me? I am only ${this.pages} pages long.`)
+
+Book.prototype.toggleRead = function(){ //Prototype
+  this.haveRead === true ? this.haveRead === false: this.haveRead === true;
 }
 
-
-// let Book1 = new Book("HarryPotter", "JK Rowling", 500, true);
- let Book2 = new Book ("Atomic Habits", "John Smith", 300,false);
 
 function AddBookToLibrary(book){ // call this function when user hits add book modal button 
-      library.push(book);
+  library.push(book);
 }
+
+ let Book1 = new Book("HarryPotter", "JK Rowling", 500, true);
+ let Book2 = new Book ("Atomic Habits", "John Smith", 300,false);
+
+
+AddBookToLibrary(Book1);
+AddBookToLibrary(Book2);
+
+console.table(library);
 
 
