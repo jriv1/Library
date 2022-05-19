@@ -37,13 +37,18 @@ proto.addEventListener("click",function(){ //When clicking wow-btn this generate
   const bookName = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
-  const haveRead = document.createElement("input");
+  const haveRead = document.createElement("button");
   const removeBtn = document.createElement("button");
+
+  haveRead.innerText ="Read";
+  haveRead.className = "haveRead";
+  removeBtn.className = "remove";
   bookName.innerText = Book2.name;
   author.innerText = Book2.author;
-  haveRead.type = "checkbox";
-  pages.innerText = Book2.pages;
+  pages.innerText = "pg. " + Book2.pages;
   removeBtn.innerText = "Remove";
+
+  
   book.append(bookName,author,pages,haveRead,removeBtn);
 
 
@@ -57,6 +62,7 @@ this.name = name;
 this.author = author;
 this.pages = pages;
 this.haveRead = haveRead;
+
 this.haveYouReadMe = function(){
     this.haveRead === true ? console.log("You have read me"): console.log("You have not read me");
 }
