@@ -4,81 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Library</title>
+    <title>Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="header">
-        <h1>Library.</h1>
-            
-        <button class="newBook-btn" type="submit">New Book</button>
 
-        <button class="newBook-btn login" type="submit">Log in</button>
+<div class="Navbar">
+    <h1>Library</h1>
+    <button class="newbook-btn">New Book</button>
+</div>
 
 
+
+<div class="modal">
+
+    <div class="modal-content">
+         
+             <span class="close"> &times;</span>
+
+          <div class="my-form">
+
+              <label for="booktitle">Title</label>
+              <input type="text" name="booktitle" id="booktitle" placeholder="Book title">
+         
+              <label for="author">Author</label>
+              <input type="text" name="author" id="author" placeholder="Author Name">
+         
+              <label for="pages">Pages</label>
+              <input type="Number" min="0"  name="pages" id="pages" placeholder="Num of pages">
+              
+                              <div>
+              
+                                  <button class="addbook-btn">Add Book</button>
+                              </div>
+          </div>
+     
+    
     </div>
 
-    <button class = protobtn>Prototype button</button>
+</div>
 
 
-                    <div class="bookshelf">
+
+            <div class="bookshelf">
+
+            </div>
 
                 
-
-
-
-
-
-                </div>
-
-
-
-
-    <div id="myModal" class="modal">
-
-       <div class="modal-form">
-        <span class="close"> &times;</span>
-
-               <form  class = "my-form " action="./index.html" method="post">
-                   
-                <h3>New Book</h3>
-                    <label for="bookname">
-
-                         <input type="text" name="bookname" id="bookname" placeholder="Book Name" required>
-
-                    </label>
-                    
-                    <label for="authorname">
-
-                            <input type="text" name="authorname" id="authorname" placeholder = "Author" required>
-                    </label> 
-                
-
-                    <label for="numPages">
-                            <input type="number" name="numPages" id="numPages" placeholder="No. of pages" required>
-                    </label>
-
-                    <label for="hasRead">
-
-                           Read: <input type="checkbox" name="hasRead" id="hasRead">
-                    </label>
-
-                    <button  class ="addBook-btn" type="submit">Add Book</button>
-
-          
-
-               </form>
-             
-       </div>
-
-
-    </div>
-
-    <form action="" method="post"></form>
-    <script src="./app.js"></script>
-
 </body>
-
-
-
+<script src="./app.js"></script>
 </html>

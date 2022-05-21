@@ -1,82 +1,117 @@
-
-
-let library = []; //global scope variable
-
-//QuerySelectors
-const newBookBtn = document.querySelector(".newBook-btn");
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
-const proto = document.querySelector(".protobtn");
-
 //Modal
-newBookBtn.onclick = function() {
+const newBookBtn = document.querySelector(".newbook-btn");
+const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".close");
+
+
+//Modal Form
+const booktitle = document.getElementById("booktitle");
+const bookauthor = document.getElementById("author");
+const numofpages = document.getElementById("pages");
+const addBookBtn = document.querySelector(".addbook-btn");
+
+//Global Variables
+let library = [];
+let book;
+
+
+// Created Doms
+const bookshelf = document.querySelector(".bookshelf");
+const books = document.querySelectorAll('.book');
+
+//Modal events
+newBookBtn.addEventListener("click",function(){
     modal.style.display = "block";
-  }
-  
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
+})
+closeModal.addEventListener("click",function(){
     modal.style.display = "none";
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
+})
+
+window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
 
-proto.addEventListener("click",AddBook); //When clicking wow-btn this generates
+  addBookBtn.addEventListener("click", function(){ //if no input dont submit
+    if(booktitle.value != "" && bookauthor.value != "" )  {
+        
+      AddBookToArray();
+    }
+});
+   
 
-function AddBook(){
-  const book = document.createElement("div");
-  book.className = "book";
-  document.querySelector(".bookshelf").appendChild(book);
-  const bookName = document.createElement("p");
-  const author = document.createElement("p");
-  const pages = document.createElement("p");
-  const haveRead = document.createElement("button");
-  const removeBtn = document.createElement("button");
+function AddBookToArray(){
 
-  haveRead.innerText ="Read";
-  haveRead.className = "haveRead";
-  removeBtn.className = "remove";
-  bookName.innerText = Book2.name;
-  author.innerText = Book2.author;
-  pages.innerText = "pg. " + Book2.pages;
-  removeBtn.innerText = "Remove";
+          book = new Book(booktitle.value,bookauthor.value,numofpages.value)
+          
+          library.push(book);  // Push new book to library array
+          console.table(library);
+    
+      
+     DisplayBook();
 
-  book.append(bookName,author,pages,haveRead,removeBtn);
+    modal.style.display = "none";
+    booktitle.value = "";
+    bookauthor.value = "";
+    numofpages.value = "";
+
+}
+function DisplayBook(){
+    const books = document.querySelectorAll('.book');    
+    books.forEach(book => bookshelf.removeChild(book));
+    
+    for (let i=0; i<library.length; i++){
+        CreateBook(library[i]);
+    }
 }
 
-
+function CreateBook(item){ 
+         
+    //Make these elemetns for each new book
+        const bookDiv = document.createElement('div');
+        const title = document.createElement('p');
+        const author = document.createElement("p");
+        const pages = document.createElement("p");
   
-  //Book object and constructor
+        const removeDiv = document.createElement("div")
+        const removebtn = document.createElement("button");
 
-function Book(name,author,pages,haveRead){
-this.name = name;
-this.author = author;
-this.pages = pages;
-this.haveRead = haveRead;
+        bookshelf.appendChild(bookDiv); //append book div to bookshelf for ach new book
+        bookDiv.classList.add('book');
+
+        bookDiv.setAttribute('id', library.indexOf(item)); //set id to each book for each index
+
+        title.innerHTML = item.title;   
+        author.innerHTML = item.author;
+        pages.innerHTML  =item.pages;
+   
+        removebtn.innerHTML = "Remove";
+        
+        title.classList.add('title');
+        author.classList.add("author");
+        pages.classList.add("pages");
+  
+        removebtn.classList.add("remove");
+        removeDiv.appendChild(removebtn);
+
+        
+
+        removebtn.addEventListener("click",function(){ 
+            library.splice(library.indexOf(item),1);
+            DisplayBook();
+
+        })
+        bookDiv.append(title,author,pages,removeDiv);
 }
 
-
-
-Book.prototype.toggleRead = function(){ //Prototype
-  this.haveRead === true ? this.haveRead === false: this.haveRead === true;
-}
-
-
-function AddBookToLibrary(book){ // call this function when user hits add book modal button 
-  library.push(book);
-}
-
- let Book1 = new Book("HarryPotter", "JK Rowling", 500, true);
- let Book2 = new Book ("Atomic Habits", "John Smith", 300,false);
-
-
-AddBookToLibrary(Book1);
-AddBookToLibrary(Book2);
-
-console.table(library);
+// Book class
+ class Book{
+     constructor(title,author,pages){ //Book constructor
+         this.title = title,
+         this.author = author,
+         this.pages = pages
+     }
+ }
 
 
