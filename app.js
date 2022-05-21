@@ -10,6 +10,22 @@ const bookauthor = document.getElementById("author");
 const numofpages = document.getElementById("pages");
 const addBookBtn = document.querySelector(".addbook-btn");
 
+//Dark mode
+const darkmode = document.querySelector(".mode");
+darkmode.addEventListener("click",function(){
+  if(  document.body.style.backgroundColor == "white"){
+
+    document.body.style.backgroundColor ="black";
+    document.querySelector(".Navbar").style.backgroundColor = "black";
+    document.querySelector(".header").style.color = "white"
+  }
+  else{
+    document.body.style.backgroundColor ="white";
+    document.querySelector(".Navbar").style.backgroundColor = "white";
+    document.querySelector(".header").style.color = "black";
+  }
+})
+
 //Global Variables
 let library = [];
 let book;
