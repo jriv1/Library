@@ -46,6 +46,7 @@ body{
 .newbook-btn:hover,.mode:hover{
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 .modal{
     display: none;
@@ -96,6 +97,7 @@ body{
     
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 
@@ -109,8 +111,9 @@ body{
     width: 100px;
 }
 .remove:hover{
-    background-color: black;
+    background-color: rgb(180, 40, 40);
     color: white; 
+    cursor: pointer;
 }
 
 .bookshelf{    /*container for books*/

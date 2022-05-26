@@ -100,7 +100,7 @@ function CreateBook(item){
 
         title.innerHTML = item.title;   
         author.innerHTML = item.author;
-        pages.innerHTML  =item.pages;
+        pages.innerHTML  =`pg. ${item.pages}`
    
         removebtn.innerHTML = "Remove";
         
