@@ -21,7 +21,36 @@ body{
 .Navbar h1{   /*Library header*/
     font-size: 40px;
     margin: 10px;
+    animation-name: library;
+    animation-duration: 1200ms;
+    animation-timing-function: ease-in;
+    
+
  
+}
+@keyframes library{
+    0%{
+        opacity: 0;
+        transform: translateX(-3em);
+        
+    }
+    25%{
+        opacity: 15;
+    
+    }
+    50%{
+        opacity: 40;   
+  
+    }
+    75%{
+        opacity: 75;
+       
+       
+    }
+    100%{
+        opacity: 100;
+ 
+    }
 }
 .newbook-btn { /* Button to input new book*/
     background-color: white;
@@ -32,6 +61,7 @@ body{
     height: 50px;
     font-size: 25px ;
     padding: 4px;
+    transition: 300ms;
 }
 .mode{
     background-color: white;
@@ -63,7 +93,7 @@ body{
 .modal-content{
     background-color: #fefefe;
     margin: 12% auto;
-    padding: 20px;
+    padding: 1rem;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 6px;
     width: 20%;
@@ -78,7 +108,8 @@ body{
 .my-form input{
     border-radius: 4px;
     border: 2px solid black;
-    padding: 6px;
+    padding: .5rem 1rem;
+    width: 80%;
 }
 .my-form label{
     font-size: 20px;
@@ -91,6 +122,7 @@ body{
     border: 2px solid black;
     color: black;
     background-color: white;
+    transition: 300ms;
 }
 .addbook-btn:hover
 {
@@ -109,6 +141,7 @@ body{
     font-size: 12px;
     padding: 4px;
     width: 100px;
+    transition: 300ms;
 }
 .remove:hover{
     background-color: rgb(180, 40, 40);
@@ -137,22 +170,69 @@ body{
     border-radius: 4px;
     border: 2px solid rgb(4, 4, 4);
     box-shadow: 4px  4px rgb(163, 163, 163); 
+    transition: 200ms;
     
 }
+.book:hover{
+   transform: skewY(-1deg);
+   transform: rotateY(8deg);
+}
+
 
 .close {
     color: rgb(146, 145, 145);
     float: right;
     font-size: 20px;
     font-weight: bold;
+    transition: 300ms;
   }
   
   .close:hover,
   .close:focus {
     color: black;
     text-decoration: none;
+    font-size: 1.4rem;
     cursor: pointer;
   }
 
 
+
+  .togglebtn{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.25rem;
+   display: none;
+    flex-direction:column ;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+
+    }
+.togglebtn .bar
+{
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    width: 100%;
+  
+}
+
+
+
+@media(max-width:500px){
+    .togglebtn{
+        display: flex;
+    
+    }
+    .newbook-btn{
+        display: none;
+    }
+    .Navbar{
+        justify-content: space-between;
+    }
+    .modal-content{
+        width: 40%;
+    }
+
+}
   

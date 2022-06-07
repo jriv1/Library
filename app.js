@@ -1,5 +1,6 @@
 //Modal
 const newBookBtn = document.querySelector(".newbook-btn");
+const hamburgerBtn = document.querySelector(".togglebtn");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".close");
 
@@ -10,21 +11,6 @@ const bookauthor = document.getElementById("author");
 const numofpages = document.getElementById("pages");
 const addBookBtn = document.querySelector(".addbook-btn");
 
-//Dark mode
-const darkmode = document.querySelector(".mode");
-darkmode.addEventListener("click",function(){
-  if(  document.body.style.backgroundColor == "white"){
-
-    document.body.style.backgroundColor ="black";
-    document.querySelector(".Navbar").style.backgroundColor = "black";
-    document.querySelector(".header").style.color = "white"
-  }
-  else{
-    document.body.style.backgroundColor ="white";
-    document.querySelector(".Navbar").style.backgroundColor = "white";
-    document.querySelector(".header").style.color = "black";
-  }
-})
 
 //Global Variables
 let library = [];
@@ -39,6 +25,7 @@ const books = document.querySelectorAll('.book');
 newBookBtn.addEventListener("click",function(){
     modal.style.display = "block";
 })
+ 
 closeModal.addEventListener("click",function(){
     modal.style.display = "none";
 })
@@ -128,6 +115,11 @@ function CreateBook(item){
          this.author = author,
          this.pages = pages
      }
+ }
+
+ function wtf(){
+   modal.style.display  = "block";
+
  }
 
 
