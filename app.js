@@ -14,6 +14,7 @@ const addBookBtn = document.querySelector(".addbook-btn");
 
 //Global Variables
 let library = [];
+
 let book;
 
 
@@ -37,7 +38,7 @@ window.onclick = function(event) {
   }
 
   addBookBtn.addEventListener("click", function(){ //if no input dont submit
-    if(booktitle.value != "" && bookauthor.value != "" )  {
+    if(booktitle.value != "" && bookauthor.value != "" && numofpages.value < 9999)  {
         
       AddBookToArray();
     }
@@ -48,8 +49,11 @@ function AddBookToArray(){
 
           book = new Book(booktitle.value,bookauthor.value,numofpages.value)
           
+    
+
           library.push(book);  // Push new book to library array
           console.table(library);
+          console.log(localStorage);
     
       
      DisplayBook();
@@ -62,7 +66,8 @@ function AddBookToArray(){
 }
 function DisplayBook(){
     const books = document.querySelectorAll('.book');    
-    books.forEach(book => bookshelf.removeChild(book));
+    books.forEach(book => 
+      bookshelf.removeChild(book));
     
     for (let i=0; i<library.length; i++){
         CreateBook(library[i]);
@@ -88,6 +93,7 @@ function CreateBook(item){
         title.innerHTML = item.title;   
         author.innerHTML = item.author;
         pages.innerHTML  =`pg. ${item.pages}`
+        
    
         removebtn.innerHTML = "Remove";
         
@@ -121,5 +127,8 @@ function CreateBook(item){
    modal.style.display  = "block";
 
  }
+
+
+
 
 

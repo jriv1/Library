@@ -24,32 +24,23 @@ body{
     animation-name: library;
     animation-duration: 1200ms;
     animation-timing-function: ease-in;
-    
-
- 
 }
 @keyframes library{
     0%{
         opacity: 0;
-        transform: translateX(-3em);
-        
+        transform: translateX(-3em);      
     }
     25%{
-        opacity: 15;
-    
+        opacity: 15;    
     }
     50%{
         opacity: 40;   
-  
     }
     75%{
-        opacity: 75;
-       
-       
+        opacity: 75;          
     }
     100%{
         opacity: 100;
- 
     }
 }
 .newbook-btn { /* Button to input new book*/
@@ -86,7 +77,6 @@ body{
     top: 0;
     width: 100%; 
     height: 100%; 
-
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
@@ -97,7 +87,6 @@ body{
     border: 2px solid rgb(0, 0, 0);
     border-radius: 6px;
     width: 20%;
- 
 }
 .my-form{
     display: flex;
@@ -125,15 +114,11 @@ body{
     transition: 300ms;
 }
 .addbook-btn:hover
-{
-    
+{  
     background-color: black;
     color: white;
     cursor: pointer;
 }
-
-
-
 .remove{
     border-radius: 4px;
     border: 2px solid black;
@@ -148,7 +133,6 @@ body{
     color: white; 
     cursor: pointer;
 }
-
 .bookshelf{    /*container for books*/
     display: flex;
     flex-direction: row;
@@ -164,7 +148,9 @@ body{
     font-size: 20px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     padding: 60px;
+   
     justify-content:space-between;
     align-items: center;
     border-radius: 4px;
@@ -177,7 +163,6 @@ body{
    transform: skewY(-1deg);
    transform: rotateY(8deg);
 }
-
 
 .close {
     color: rgb(146, 145, 145);
@@ -194,8 +179,6 @@ body{
     font-size: 1.4rem;
     cursor: pointer;
   }
-
-
 
   .togglebtn{
     position: absolute;
@@ -216,8 +199,6 @@ body{
     width: 100%;
   
 }
-
-
 
 @media(max-width:500px){
     .togglebtn{
